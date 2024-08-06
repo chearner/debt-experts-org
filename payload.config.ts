@@ -25,6 +25,12 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
+import { UsersCollection } from '@/collections/Users'
+import { MoviesCollection } from '@/collections/Movies'
+import { MediaCollection } from '@/collections/Media'
+import { FAQsCollection } from '@/collections/FAQs'
+import { CompaniesCollection } from '@/collections/Companies'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -32,41 +38,11 @@ export default buildConfig({
   //editor: slateEditor({}),
   editor: lexicalEditor(),
   collections: [
-    {
-      slug: 'users',
-      auth: true,
-      access: {
-        delete: () => false,
-        update: () => false,
-      },
-      fields: [],
-    },
-    {
-      slug: 'pages',
-      admin: {
-        useAsTitle: 'title',
-      },
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-        },
-        {
-          name: 'content',
-          type: 'richText',
-        },
-      ],
-    },
-    {
-      slug: 'media',
-      upload: true,
-      fields: [
-        {
-          name: 'text',
-          type: 'text',
-        },
-      ],
-    },
+    UsersCollection,
+    MoviesCollection,
+    MediaCollection,
+    FAQsCollection,
+    CompaniesCollection,
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -80,7 +56,6 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-
   /**
    * Payload can now accept specific translations from 'payload/i18n/en'
    * This is completely optional and will default to English if not provided
@@ -88,7 +63,6 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en },
   },
-
   admin: {
     autoLogin: {
       email: 'dev@payloadcms.com',

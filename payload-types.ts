@@ -12,8 +12,10 @@ export interface Config {
   };
   collections: {
     users: User;
-    pages: Page;
+    movies: Movie;
     media: Media;
+    faqs: Faq;
+    companies: Company;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -61,26 +63,21 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "movies".
  */
-export interface Page {
+export interface Movie {
   id: string;
-  title?: string | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+  name: string;
+  url: string;
+  votes: number;
+  poster: string | Media;
+  overview: string;
+  tagline: string;
+  genres: {
+    name?: string | null;
+    id?: string | null;
+  }[];
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -102,6 +99,33 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs".
+ */
+export interface Faq {
+  id: string;
+  question: string;
+  answer: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "companies".
+ */
+export interface Company {
+  id: string;
+  company: string;
+  url: string;
+  rating: number;
+  logo: string | Media;
+  description: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
