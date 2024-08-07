@@ -30,6 +30,7 @@ import { MoviesCollection } from '@/collections/Movies'
 import { MediaCollection } from '@/collections/Media'
 import { FAQsCollection } from '@/collections/FAQs'
 import { CompaniesCollection } from '@/collections/Companies'
+import { ArticlesCollection } from '@/collections/Articles'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -43,6 +44,7 @@ export default buildConfig({
     MediaCollection,
     FAQsCollection,
     CompaniesCollection,
+    ArticlesCollection,
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

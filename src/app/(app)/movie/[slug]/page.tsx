@@ -23,7 +23,7 @@ export default async function MovieDetails({ params }: { params: { slug: string 
   const movie = movies.docs[0]
 
   return (
-    <div className="flex gap-2 mt-5">
+    <div className="flex gap-2 w-full">
       <Image
         src={(movie.poster as Media)?.url ?? ''}
         alt={(movie.poster as Media)?.text ?? ''}
@@ -31,7 +31,7 @@ export default async function MovieDetails({ params }: { params: { slug: string 
         height={(movie.poster as Media)?.height ?? 100}
         className="w-1/3 rounded-3xl"
       />
-      <div className="flex flex-col gap-2 w-2/3">
+      <div className="flex flex-col gap-2">
         <h1 className="font-bold text-4xl border-b-2">{movie.name}</h1>
         {movie.tagline && <h2 className="font-light text-3xl mb-3">{movie.tagline}</h2>}
         <p className="font-light mb-3 text-right">

@@ -21,10 +21,10 @@ const formatSlug =
     return value
   }
 
-export const CompaniesCollection: CollectionConfig = {
-  slug: 'companies',
+export const ArticlesCollection: CollectionConfig = {
+  slug: 'articles',
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: 'title',
   },
   access: {
     create: () => true,
@@ -32,35 +32,14 @@ export const CompaniesCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'name',
+      name: 'title',
       type: 'text',
       required: true,
     },
     {
-      name: 'description',
+      name: 'content',
       type: 'text',
       required: true,
-    },
-    {
-      name: 'review',
-      type: 'text',
-      required: false,
-    },
-    {
-      name: 'rating',
-      type: 'number',
-      required: true,
-    },
-    {
-      name: 'link',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'logo',
-      type: 'upload',
-      relationTo: 'media',
-      required: false,
     },
     {
       name: 'slug',
@@ -70,7 +49,7 @@ export const CompaniesCollection: CollectionConfig = {
         position: 'sidebar',
       },
       hooks: {
-        beforeValidate: [formatSlug('name')],
+        beforeValidate: [formatSlug('title')],
       },
     },
   ],

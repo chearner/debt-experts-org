@@ -16,6 +16,7 @@ export interface Config {
     media: Media;
     faqs: Faq;
     companies: Company;
+    articles: Article;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -118,11 +119,24 @@ export interface Faq {
  */
 export interface Company {
   id: string;
-  company: string;
-  url: string;
-  rating: number;
-  logo: string | Media;
+  name: string;
   description: string;
+  review?: string | null;
+  rating: number;
+  link: string;
+  logo?: string | Media | null;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "articles".
+ */
+export interface Article {
+  id: string;
+  title: string;
+  content: string;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;

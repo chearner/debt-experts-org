@@ -2,6 +2,7 @@ import React from 'react'
 import './globals.scss'
 
 import Header from './Header'
+import Footer from './Footer'
 
 /* Our app sits here to not cause any conflicts with payload's root layout  */
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -10,6 +11,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
