@@ -24,7 +24,7 @@ export default async function Article({ params }: { params: { slug: string } }) 
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         {article.title}
       </h1>
-      <p className="">{article.content}</p>
+      <p className="">{article.long}</p>
     </div>
   )
 }
