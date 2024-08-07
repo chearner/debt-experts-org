@@ -136,7 +136,9 @@ export interface Company {
 export interface Article {
   id: string;
   title: string;
-  content: string;
+  short: string;
+  long: string;
+  image: string | Media;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;

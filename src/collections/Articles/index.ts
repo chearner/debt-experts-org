@@ -37,8 +37,19 @@ export const ArticlesCollection: CollectionConfig = {
       required: true,
     },
     {
-      name: 'content',
+      name: 'short',
       type: 'text',
+      required: true,
+    },
+    {
+      name: 'long',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
       required: true,
     },
     {
