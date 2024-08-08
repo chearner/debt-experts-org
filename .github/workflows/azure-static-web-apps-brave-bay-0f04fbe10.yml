@@ -16,14 +16,6 @@ jobs:
 
     name: Build and Deploy Job
     steps:
-      - name: Use pnpm ${{ env.PNPM_VERSION }}
-        uses: pnpm/action-setup@v3
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
       - name: Install
         run: |
           # force a development install, to make sure dev dependencies are installed
