@@ -42,6 +42,11 @@ export const CompaniesCollection: CollectionConfig = {
       required: true,
     },
     {
+      name: 'url',
+      type: 'text',
+      required: false,
+    },
+    {
       name: 'review',
       type: 'text',
       required: false,

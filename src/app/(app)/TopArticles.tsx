@@ -17,11 +17,11 @@ export default function TopArticles({ articles: initialArticles }: { articles: A
   const [articles, setArticles] = useState<Article[]>(initialArticles)
 
   return (
-    <div className="flex flex-col my-5">
+    <div className="flex flex-col">
       <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Debt Consolidation Articles
       </h2>
-      <div className="flex flex-row gap-4 my-5">
+      <div className="flex flex-wrap gap-5 my-5">
         {articles.map((article) => (
           <Card key={article.id} className="max-w-80">
             <CardHeader>

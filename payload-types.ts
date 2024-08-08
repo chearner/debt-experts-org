@@ -121,6 +121,7 @@ export interface Company {
   id: string;
   name: string;
   description: string;
+  url?: string | null;
   review?: string | null;
   rating: number;
   link: string;

@@ -38,7 +38,10 @@ const Page = async () => {
       </p>
       <p>
         Find out how we
-        <Link href="/rank">rank debt consolidation companies</Link>.
+        <Link href="/rank" className="ml-1">
+          rank debt consolidation companies
+        </Link>
+        .
       </p>
       <TopCompanies companies={companies.docs} />
       <TopArticles articles={articles.docs} />
