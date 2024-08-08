@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '20.x'
+          node-version: '18.20.4'
 
       - name: Install pnpm
         run: |
@@ -48,10 +48,11 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           skip_app_build: true
+          skip_api_build: true
           app_location: '/' # App source code path
           api_location: '' # Api source code path - optional
           app_build_command: 'pnpm install'
-          output_location: '.next' # Built app content directory - optional
+          output_location: '' # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
