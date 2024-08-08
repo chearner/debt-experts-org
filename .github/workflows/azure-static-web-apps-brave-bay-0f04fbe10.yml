@@ -16,11 +16,6 @@ jobs:
 
     name: Build and Deploy Job
     steps:
-      - name: Install
-        run: |
-          # force a development install, to make sure dev dependencies are installed
-          # they get filtered out by the standalone build for next
-          NODE_ENV=development pnpm install
       - name: 'Setup: Install Dependencies'
         run: pnpm install
       - name: 'Run Build'
