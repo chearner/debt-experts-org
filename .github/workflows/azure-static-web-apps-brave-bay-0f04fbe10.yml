@@ -18,16 +18,13 @@ jobs:
     steps:
       - name: Use pnpm ${{ env.PNPM_VERSION }}
         uses: pnpm/action-setup@v3
-        with:
-          version: ${{ env.PNPM_VERSION }}
+
       - name: 'Setup: Install Dependencies'
         run: pnpm install
       - name: 'Run Build'
         run: 'pnpm build'
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-          lfs: false
+      - uses: pnpm/action-setup@v3
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
