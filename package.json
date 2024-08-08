@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "dev": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next dev",
     "devturbo": "pnpm dev --turbo",
     "devsafe": "rm -rf .next && pnpm dev",
