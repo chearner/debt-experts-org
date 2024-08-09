@@ -7,3 +7,6 @@
 > This is also a lead generation, affiliate marketing website.
 
 Based on Payload CMS 3.0 Beta `https://github.com/payloadcms/payload-3.0-demo`
+
+mainHook
+https://api.vercel.com/v1/integrations/deploy/prj_FSRCkdtBtoCiSLjNbM0uqo7HssVF/JrgVaGmm0r
