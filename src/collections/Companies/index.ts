@@ -1,4 +1,5 @@
 import { CollectionConfig, FieldHook } from 'payload'
+import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
 
 const format = (val: string): string =>
   val
@@ -37,20 +38,28 @@ export const CompaniesCollection: CollectionConfig = {
       required: true,
     },
     {
-      name: 'description',
-      type: 'text',
-      required: true,
-    },
-    {
       name: 'url',
       type: 'text',
       required: false,
     },
     {
-      name: 'review',
-      type: 'text',
+      name: 'short',
+      type: 'richText',
       required: false,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
+      }),
     },
+    lexicalHTML('short', { name: 'short_html' }),
+    {
+      name: 'long',
+      type: 'richText',
+      required: false,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
+      }),
+    },
+    lexicalHTML('long', { name: 'long_html' }),
     {
       name: 'rating',
       type: 'number',

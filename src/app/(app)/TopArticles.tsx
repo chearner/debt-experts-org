@@ -17,8 +17,8 @@ export default function TopArticles({ articles: initialArticles }: { articles: A
   const [articles, setArticles] = useState<Article[]>(initialArticles)
 
   return (
-    <div className="flex flex-col">
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+    <div className="flex flex-col py-5">
+      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-bold tracking-tight first:mt-0">
         Debt Consolidation Articles
       </h2>
       <div className="flex flex-wrap gap-5 my-5">
@@ -26,11 +26,11 @@ export default function TopArticles({ articles: initialArticles }: { articles: A
           <Card key={article.id} className="max-w-80">
             <CardHeader>
               <Image
-                className="max-h-24"
+                className=""
                 src={(article.image as Media)?.url ?? ''}
                 alt={(article.image as Media)?.text ?? ''}
                 width={200}
-                height={100}
+                height={200}
               />
             </CardHeader>
             <CardContent>

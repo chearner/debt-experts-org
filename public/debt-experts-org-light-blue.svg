@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="-6.192 103.739 469.37 137.429" xmlns="http://www.w3.org/2000/svg">
   <defs/>
-  <rect x="14.792" y="127.011" width="171.813" height="87.931" style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 10px; fill: rgb(200, 255, 0); stroke: rgb(200, 255, 0);"/>
+  <rect x="14.792" y="127.011" width="171.813" height="87.931" style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 10px; stroke: rgb(0, 187, 255); fill: rgb(0, 187, 255);"/>
   <g id="path393795" aria-label="D" transform="matrix(0.83, 0, 0, 0.83, -188.558899, 192.241318)" style="font-style: normal; font-weight: 700; font-size: 72px; line-height: 1; font-family: 'Brandmark1 Bold Color'; font-variant-ligatures: normal; text-align: center; text-anchor: middle;">
     <path class="c1" d="M76.5979,128.11865v-56.2373h18.43311c3.81641,0,7.51758,0.72705,11.00293,2.16748 c3.38477,1.39648,6.42285,3.40576,9.02246,5.96191c2.61426,2.5708,4.67285,5.58057,6.10645,8.93604 c1.4834,3.47803,2.23926,7.18604,2.23926,11.01709c0,3.83057-0.75586,7.53906-2.23926,11.02393 c-1.43359,3.36328-3.48535,6.37305-6.09961,8.95703c-2.60645,2.57129-5.6377,4.58789-9.02246,5.99219 c-3.48438,1.44727-7.19336,2.18164-11.00977,2.18164H76.5979z M95.03101,116.81299c4.58691,0,8.87891-1.74219,12.09766-4.91797 c3.2041-3.16113,4.96777-7.40234,4.96777-11.93115c0-4.52197-1.76367-8.7417-4.96094-11.88818 c-3.21094-3.1543-7.50977-4.88965-12.10449-4.88965h-7.12842v33.62695H95.03101z" transform="translate(184.05404 -125.52135)" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" style="stroke: rgb(41, 45, 51); fill: rgb(255, 255, 255);"/>
   </g>

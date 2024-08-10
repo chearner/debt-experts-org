@@ -14,7 +14,11 @@ export default function Header() {
     <header className="flex flex-row justify-between items-center py-5">
       <Link href="/">
         <Image
-          src={theme === 'dark' ? '/debt-experts-org-light.svg' : '/debt-experts-org-dark.svg'}
+          src={
+            theme === 'dark'
+              ? '/debt-experts-org-light-blue.svg'
+              : '/debt-experts-org-dark-blue.svg'
+          }
           alt="Debt-Experts.org"
           height="75"
           width="200"

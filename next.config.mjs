@@ -7,6 +7,8 @@ const nextConfig = {
     reactCompiler: false,
   },
   images: {
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'inline',
     unoptimized: true,
     remotePatterns: [
       {

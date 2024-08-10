@@ -24,9 +24,9 @@ export default async function Company({ params }: { params: { slug: string } }) 
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         {company.name}
       </h1>
-      <p className="">{company.description}</p>
-      <p className="">{company.rating}</p>
-      <p className="">{company.link}</p>
+      <div className="" dangerouslySetInnerHTML={{ __html: company.long_html || '' }}></div>
+      <div className="">{company.rating}</div>
+      <div className="">{company.link}</div>
     </div>
   )
 }

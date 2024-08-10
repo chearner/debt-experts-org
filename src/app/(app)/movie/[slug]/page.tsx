@@ -34,9 +34,9 @@ export default async function MovieDetails({ params }: { params: { slug: string 
       <div className="flex flex-col gap-2">
         <h1 className="font-bold text-4xl border-b-2">{movie.name}</h1>
         {movie.tagline && <h2 className="font-light text-3xl mb-3">{movie.tagline}</h2>}
-        <p className="font-light mb-3 text-right">
+        <div className="font-light mb-3 text-right">
           {movie.genres.map(({ name }) => name).join(', ')}
-        </p>
+        </div>
         <p className="italic">{movie.overview}</p>
       </div>
     </div>
