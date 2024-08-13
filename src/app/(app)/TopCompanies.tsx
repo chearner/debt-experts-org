@@ -47,7 +47,7 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                 <CardDescription className="w-2/5 flex flex-col justify-center items-center text-sm">
                   <div className="font-extrabold flex flex-row w-fit bg-slate-200 rounded-lg p-2">
                     <Trophy className="h-5 w-5 mr-2" />
-                    Editor's Choice
+                    Editors Choice
                   </div>
                   <div
                     className="rich-text"
