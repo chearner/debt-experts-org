@@ -34,7 +34,7 @@ export async function addMovieAction(movieId: number) {
   const posterMedia = await payload.create({
     collection: 'media',
     data: {
-      text: `${title} Poster`,
+      caption: `${title} Poster`,
     },
     file: {
       data: posterBuffer,

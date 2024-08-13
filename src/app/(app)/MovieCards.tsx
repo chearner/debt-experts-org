@@ -26,7 +26,7 @@ export default function MovieCards({ movies: initialMovies }: { movies: Movie[] 
               <Link href={`/movie/${movie.slug}`}>
                 <Image
                   src={(movie.poster as Media)?.url ?? ''}
-                  alt={(movie.poster as Media)?.text ?? ''}
+                  alt={(movie.poster as Media)?.caption ?? ''}
                   width={(movie.poster as Media)?.width ?? 100}
                   height={(movie.poster as Media)?.height ?? 100}
                 />
