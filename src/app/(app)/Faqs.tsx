@@ -10,15 +10,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import H2 from './components/H2'
 
 export default function Faqs({ faqs: initialFaqs }: { faqs: Faq[] }) {
   const [faqs, setFaqs] = useState<Faq[]>(initialFaqs)
 
   return (
-    <div className="flex flex-wrap my-5">
-      <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-        Frequently Asked Questions
-      </h2>
+    <section className="flex flex-wrap mb-5">
+      <H2 text="Frequently Asked Questions" span="" />
       {faqs.map((faq) => (
         <Accordion key={faq.id} type="single" collapsible className="w-full" defaultValue={faq.id}>
           <AccordionItem value={faq.id}>
@@ -31,6 +30,6 @@ export default function Faqs({ faqs: initialFaqs }: { faqs: Faq[] }) {
           </AccordionItem>
         </Accordion>
       ))}
-    </div>
+    </section>
   )
 }

@@ -17,67 +17,28 @@ import {
   ParagraphFeature,
   RelationshipFeature,
   UnorderedListFeature,
+  TreeViewFeature,
   UploadFeature,
+  HTMLConverterFeature,
 } from '@payloadcms/richtext-lexical'
-//import { slateEditor } from '@payloadcms/richtext-slate'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
-
 import { UsersCollection } from '@/collections/Users'
 import { MoviesCollection } from '@/collections/Movies'
 import { MediaCollection } from '@/collections/Media'
 import { FAQsCollection } from '@/collections/FAQs'
 import { CompaniesCollection } from '@/collections/Companies'
 import { ArticlesCollection } from '@/collections/Articles'
+import { MyFeature } from '@/lexical/feature.server'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  //editor: slateEditor({}),
   editor: lexicalEditor({
-    features: ({ defaultFeatures }) => [
-      ...defaultFeatures,
-      LinkFeature({
-        // Example showing how to customize the built-in fields
-        // of the Link feature
-        fields: [
-          {
-            name: 'rel',
-            label: 'Rel Attribute',
-            type: 'select',
-            hasMany: true,
-            options: ['noopener', 'noreferrer', 'nofollow'],
-            admin: {
-              description:
-                'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
-            },
-          },
-        ],
-      }),
-      UploadFeature({
-        collections: {
-          uploads: {
-            // Example showing how to customize the built-in fields
-            // of the Upload feature
-            fields: [
-              {
-                name: 'caption',
-                type: 'richText',
-                editor: lexicalEditor(),
-              },
-            ],
-          },
-        },
-      }),
-      // This is incredibly powerful. You can re-use your Payload blocks
-      // directly in the Lexical editor as follows:
-      BlocksFeature({
-        blocks: [],
-      }),
-    ],
+    features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
   }),
   collections: [
     UsersCollection,
@@ -99,10 +60,6 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-  /**
-   * Payload can now accept specific translations from 'payload/i18n/en'
-   * This is completely optional and will default to English if not provided
-   */
   i18n: {
     supportedLanguages: { en },
   },

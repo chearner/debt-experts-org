@@ -12,39 +12,38 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import H2 from './components/H2'
 
 export default function TopArticles({ articles: initialArticles }: { articles: Article[] }) {
   const [articles, setArticles] = useState<Article[]>(initialArticles)
 
   return (
-    <div className="flex flex-col py-5">
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-bold tracking-tight first:mt-0">
-        Debt Consolidation Articles
-      </h2>
-      <div className="flex flex-wrap gap-5 my-5">
+    <section className="flex flex-col mb-5">
+      <H2 text="Debt Consolidation Articles" span="" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {articles.map((article) => (
-          <Card key={article.id} className="max-w-80">
+          <Card key={article.id} className="max-w-xs shadow-xl">
             <CardHeader>
               <Image
-                className=""
-                src={(article.image as Media)?.url ?? ''}
-                alt={(article.image as Media)?.text ?? ''}
+                className="w-fit"
+                src={(article.preview as Media)?.url ?? ''}
+                alt={(article.preview as Media)?.caption ?? ''}
                 width={200}
                 height={200}
               />
             </CardHeader>
             <CardContent>
-              <CardTitle className="mb-2">{article.title}</CardTitle>
-              <CardDescription>{article.short}</CardDescription>
+              <CardTitle className="pb-2">{article.title}</CardTitle>
+              <CardDescription className="rich-text">{article.short}</CardDescription>
             </CardContent>
             <CardFooter>
               <Button asChild variant="outline">
-                <Link href={`/article/${article.slug}`}>Read More</Link>
+                <Link href={`/article/${article.slug}`}>Learn More</Link>
               </Button>
             </CardFooter>
           </Card>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

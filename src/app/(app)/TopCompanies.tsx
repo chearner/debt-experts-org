@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Smile, Percent, ArrowRight } from 'lucide-react'
+import { Smile, ShieldCheck, Percent, ArrowRight, Trophy } from 'lucide-react'
 import type { Company, Media } from 'payload-types'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -14,28 +14,24 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import H2 from './components/H2'
 
 export default function TopCompanies({ companies: initialCompanies }: { companies: Company[] }) {
   const [companies, setCompanies] = useState<Company[]>(initialCompanies)
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-between py-5 items-center">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-bold tracking-tight first:mt-0 flex justify-between items-center w-full">
-          Top 5 Debt Consolidation Loan Companies
-          <span className="text-sm">August 2024</span>
-        </h2>
-      </div>
+    <section className="flex flex-col mb-5">
+      <H2 text="Top 5 Debt Consolidation Loan Companies" span="August 2024" />
       <div className="flex flex-wrap gap-5">
         {companies.map((company, i) => (
           <>
-            <Card key={company.id} className="w-full relative">
+            <Card key={company.id} className="w-full relative shadow-xl">
               <div className="absolute top-[10px] left-[15px] font-bold text-2xl text-slate-300">
                 {i + 1}
               </div>
-              <CardHeader className=""></CardHeader>
-              <CardContent className="flex flex-row">
-                <div className="w-1/4 flex flex-col items-center justify-center">
+              <CardHeader className="p-3"></CardHeader>
+              <CardContent className="w-full flex flex-row">
+                <div className="w-1/5 flex flex-col items-center justify-center">
                   <Image
                     className=""
                     src={
@@ -43,31 +39,35 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                         ? (company.logo as Media)?.filename ?? ''
                         : (company.logo as Media)?.url ?? ''
                     }
-                    alt={(company.logo as Media)?.text ?? ''}
+                    alt={(company.logo as Media)?.caption ?? ''}
                     width={200}
                     height={200}
                   />
                 </div>
-                <CardDescription className="w-1/4 flex flex-col items-center justify-center text-sm">
+                <CardDescription className="w-2/5 flex flex-col justify-center items-center text-sm">
+                  <div className="font-extrabold flex flex-row w-fit bg-slate-200 rounded-lg p-2">
+                    <Trophy className="h-5 w-5 mr-2" />
+                    Editor's Choice
+                  </div>
                   <div
-                    className="font-semibold"
+                    className="rich-text"
                     dangerouslySetInnerHTML={{ __html: company.short_html || '' }}
                   ></div>
                 </CardDescription>
-                <CardDescription className="w-1/4 flex flex-col items-center justify-center text-sm">
-                  <div className="text-2xl font-extrabold">{company.rating}.5</div>
-                  <div className="flex items-center gap-1 py-2">
+                <CardDescription className="w-1/5 flex flex-col items-center justify-center text-sm">
+                  <CardTitle>{company.rating}</CardTitle>
+                  <div className="flex items-center gap-0 py-2">
                     {[...Array(5)].map((x, i) =>
                       i < company.rating ? (
-                        <Smile key={i} className="w-7 h-7 fill-amber-300" />
+                        <ShieldCheck key={i} className="w-7 h-7 stroke-black fill-green-200" />
                       ) : (
-                        <Smile key={i} className="w-7 h-7 stroke-slate-300" />
+                        <ShieldCheck key={i} className="w-7 h-7 stroke-slate-300 fill-slate-100" />
                       ),
                     )}
                   </div>
                   <div className="font-bold">Outstanding</div>
                 </CardDescription>
-                <CardDescription className="w-1/4 flex flex-col items-center justify-center text-sm">
+                <CardDescription className="w-1/5 flex flex-col items-center justify-center text-sm">
                   <Button asChild variant="default" className="">
                     <Link href={`${company.url}`}>
                       Get Your Rate
@@ -76,11 +76,10 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                   </Button>
                 </CardDescription>
               </CardContent>
-              <CardFooter className=""></CardFooter>
             </Card>
           </>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

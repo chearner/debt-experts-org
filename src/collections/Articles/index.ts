@@ -1,4 +1,5 @@
 import { CollectionConfig, FieldHook } from 'payload'
+import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
 
 const format = (val: string): string =>
   val
@@ -37,21 +38,31 @@ export const ArticlesCollection: CollectionConfig = {
       required: true,
     },
     {
+      name: 'dateOnly',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayOnly',
+          displayFormat: 'd MMM yyy',
+        },
+      },
+    },
+    {
+      name: 'author',
+      type: 'text',
+      required: true,
+    },
+    {
       name: 'short',
       type: 'text',
       required: true,
     },
     {
       name: 'long',
-      type: 'text',
+      type: 'richText',
       required: true,
     },
-    {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
-      required: true,
-    },
+    lexicalHTML('long', { name: 'long_html' }),
     {
       name: 'slug',
       label: 'Slug',
@@ -62,6 +73,12 @@ export const ArticlesCollection: CollectionConfig = {
       hooks: {
         beforeValidate: [formatSlug('title')],
       },
+    },
+    {
+      name: 'preview',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
     },
   ],
 }

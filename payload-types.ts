@@ -88,7 +88,8 @@ export interface Movie {
  */
 export interface Media {
   id: string;
-  text?: string | null;
+  alt?: string | null;
+  caption?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -167,10 +168,27 @@ export interface Company {
 export interface Article {
   id: string;
   title: string;
+  dateOnly?: string | null;
+  author: string;
   short: string;
-  long: string;
-  image: string | Media;
+  long: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  long_html?: string | null;
   slug?: string | null;
+  preview: string | Media;
   updatedAt: string;
   createdAt: string;
 }
