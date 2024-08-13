@@ -26,7 +26,7 @@ export default async function MovieDetails({ params }: { params: { slug: string 
     <div className="flex gap-2 w-full">
       <Image
         src={(movie.poster as Media)?.url ?? ''}
-        alt={(movie.poster as Media)?.text ?? ''}
+        alt={(movie.poster as Media)?.caption ?? ''}
         width={(movie.poster as Media)?.width ?? 100}
         height={(movie.poster as Media)?.height ?? 100}
         className="w-1/3 rounded-3xl"
