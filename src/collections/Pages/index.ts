@@ -22,10 +22,10 @@ const formatSlug =
     return value
   }
 
-export const CompaniesCollection: CollectionConfig = {
-  slug: 'companies',
+export const PagesCollection: CollectionConfig = {
+  slug: 'pages',
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: 'title',
   },
   access: {
     create: () => true,
@@ -33,51 +33,23 @@ export const CompaniesCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'name',
+      name: 'title',
       type: 'text',
       required: true,
     },
     {
-      name: 'url',
-      type: 'text',
-      required: false,
-    },
-    {
-      name: 'short',
+      name: 'content',
       type: 'richText',
       required: false,
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
       }),
     },
-    lexicalHTML('short', { name: 'short_html' }),
+    lexicalHTML('content', { name: 'content_html' }),
     {
-      name: 'long',
-      type: 'richText',
-      required: false,
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
-      }),
-    },
-    lexicalHTML('long', { name: 'long_html' }),
-    {
-      name: 'rating',
-      type: 'number',
-      required: true,
-    },
-    {
-      name: 'link',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'logo',
-      type: 'text',
-      required: false,
-    },
-    {
-      name: 'logo_alt',
-      type: 'text',
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
       required: false,
     },
     {
@@ -88,7 +60,7 @@ export const CompaniesCollection: CollectionConfig = {
         position: 'sidebar',
       },
       hooks: {
-        beforeValidate: [formatSlug('name')],
+        beforeValidate: [formatSlug('title')],
       },
     },
   ],

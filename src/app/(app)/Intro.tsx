@@ -14,7 +14,7 @@ export default function Intro() {
         unique financial situation.
       </p>
       Find out how we
-      <Link href="/rank" className="ml-1 underline">
+      <Link href="/page/how-we-rank-companies" className="ml-1 underline">
         rank debt consolidation companies
       </Link>
       .

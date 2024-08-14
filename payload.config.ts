@@ -31,6 +31,7 @@ import { MediaCollection } from '@/collections/Media'
 import { FAQsCollection } from '@/collections/FAQs'
 import { CompaniesCollection } from '@/collections/Companies'
 import { ArticlesCollection } from '@/collections/Articles'
+import { PagesCollection } from '@/collections/Pages'
 import { MyFeature } from '@/lexical/feature.server'
 
 const filename = fileURLToPath(import.meta.url)
@@ -47,6 +48,7 @@ export default buildConfig({
     FAQsCollection,
     CompaniesCollection,
     ArticlesCollection,
+    PagesCollection,
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

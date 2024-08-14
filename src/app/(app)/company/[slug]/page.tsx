@@ -27,16 +27,12 @@ export default async function Company({ params }: { params: { slug: string } }) 
 
   return (
     <section className="max-w-screen-lg mx-5 lg:mx-0 lg:mx-auto xl:mx-auto">
-      <H2 title={company.name} span="" />
+      <H2 title={company.name} span="" tag="" />
       <div className="float-right flex flex-col justify-center items-center m-5">
         <Image
           className="py-5"
-          src={
-            (company.logo as Media)?.mimeType === 'image/svg+xml'
-              ? '/' + (company.logo as Media)?.filename ?? ''
-              : '/' + (company.logo as Media)?.url ?? ''
-          }
-          alt={(company.logo as Media)?.caption ?? ''}
+          src={company.logo ?? ''}
+          alt={company.name}
           width={200}
           height={200}
         />
@@ -56,7 +52,7 @@ export default async function Company({ params }: { params: { slug: string } }) 
         dangerouslySetInnerHTML={{ __html: company.long_html || '' }}
       ></div>
       <div className="pb-5">
-        <Button asChild variant="default" className="">
+        <Button asChild variant="default" className="outline">
           <Link href={`${company.link}`}>
             Get Your Rate
             <ArrowRight className="w-5 h-5 ml-1" />

@@ -17,6 +17,7 @@ export interface Config {
     faqs: Faq;
     companies: Company;
     articles: Article;
+    pages: Page;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -155,8 +156,8 @@ export interface Company {
   long_html?: string | null;
   rating: number;
   link: string;
-  logo?: string | Media | null;
-  'logo-alt'?: string | Media | null;
+  logo?: string | null;
+  logo_alt?: string | null;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -189,6 +190,34 @@ export interface Article {
   long_html?: string | null;
   slug?: string | null;
   preview: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  title: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  content_html?: string | null;
+  image?: string | Media | null;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }

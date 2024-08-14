@@ -6,6 +6,7 @@ import Faqs from './Faqs'
 import TopCompanies from './TopCompanies'
 import TopArticles from './TopArticles'
 import Intro from './Intro'
+import HowItWorks from './HowItWorks'
 
 const Page = async () => {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -29,6 +30,7 @@ const Page = async () => {
     <main className="max-w-screen-lg mx-5 lg:mx-0 lg:mx-auto xl:mx-auto">
       <Intro />
       <TopCompanies companies={companies.docs} />
+      <HowItWorks />
       <TopArticles articles={articles.docs} />
       <Faqs faqs={faqs.docs} />
     </main>

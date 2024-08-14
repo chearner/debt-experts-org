@@ -20,7 +20,7 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
 
   return (
     <section className="flex flex-col mb-5">
-      <H2 title="Top 5 Debt Consolidation Loan Companies" span="August 2024" />
+      <H2 title="Top 5 Debt Consolidation Loan Companies" span="August 2024" tag="" />
       <div className="flex flex-wrap gap-5">
         {companies.map((company, i) => (
           <>
@@ -33,12 +33,8 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                 <div className="w-1/5 flex flex-col items-center justify-center">
                   <Image
                     className="pl-5"
-                    src={
-                      (company.logo as Media)?.mimeType === 'image/svg+xml'
-                        ? (company.logo as Media)?.filename ?? ''
-                        : (company.logo as Media)?.url ?? ''
-                    }
-                    alt={(company.logo as Media)?.caption ?? ''}
+                    src={company.logo ?? ''}
+                    alt={company.name}
                     width={200}
                     height={200}
                   />
@@ -56,7 +52,7 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                     className="underline text-sm text-blue-500 font-bold"
                     href={`/company/${company.slug}`}
                   >
-                    Read Our Full Review
+                    Read our Review of {company.name}
                   </Link>
                 </CardDescription>
                 <CardDescription className="w-1/5 flex flex-col items-center justify-center text-sm">
@@ -73,7 +69,7 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                   <div className="font-bold">Outstanding</div>
                 </CardDescription>
                 <CardDescription className="w-1/5 flex flex-col items-center justify-center text-sm">
-                  <Button asChild variant="default" className="">
+                  <Button asChild variant="default" className="outline">
                     <Link href={`${company.url}`}>
                       Get Your Rate
                       <ArrowRight className="w-5 h-5 ml-1" />
