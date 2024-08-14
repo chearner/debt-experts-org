@@ -17,7 +17,7 @@ export default function Faqs({ faqs: initialFaqs }: { faqs: Faq[] }) {
 
   return (
     <section className="flex flex-wrap mb-5">
-      <H2 text="Frequently Asked Questions" span="" />
+      <H2 title="Frequently Asked Questions" span="" />
       {faqs.map((faq) => (
         <Accordion key={faq.id} type="single" collapsible className="w-full" defaultValue={faq.id}>
           <AccordionItem value={faq.id}>
