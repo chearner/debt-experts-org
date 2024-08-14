@@ -77,6 +77,12 @@ export const CompaniesCollection: CollectionConfig = {
       required: false,
     },
     {
+      name: 'logo-alt',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+    },
+    {
       name: 'slug',
       label: 'Slug',
       type: 'text',

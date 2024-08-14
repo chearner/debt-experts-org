@@ -4,6 +4,7 @@ import configPromise from '@payload-config'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import type { Article, Media } from 'payload-types'
 import { format } from 'date-fns'
+import H1 from '../../components/H1'
 
 export default async function Article({ params }: { params: { slug: string } }) {
   const { slug } = params
@@ -23,29 +24,22 @@ export default async function Article({ params }: { params: { slug: string } }) 
   const article = articles.docs[0]
 
   return (
-    <>
-      <div className="m-5 mx-auto max-w-[1200px]">
-        <h1 className="flex flex-row justify-between items-end scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-5xl pb-2 border-b">
-          {article.title}{' '}
-          <span className="text-sm font-semibold">
-            {article.dateOnly ? format(article.dateOnly, 'PPP') : ''}
-          </span>
-        </h1>
-        <article
-          className="pt-5"
-          dangerouslySetInnerHTML={{ __html: article.long_html || '' }}
-        ></article>
-        <div className="flex flex-row items-center text-sm pb-5">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>SH</AvatarFallback>
-          </Avatar>
-          <div className="mx-2 font-bold">
-            {article.author}
-            <span className="font-normal italic"> - Debt Expert</span>
-          </div>
+    <section className="max-w-screen-lg mx-5 lg:mx-0 lg:mx-auto xl:mx-auto">
+      <H1 title={article.title} span={article.dateOnly ? format(article.dateOnly, 'PPP') : ''} />
+      <article
+        className="pt-5"
+        dangerouslySetInnerHTML={{ __html: article.long_html || '' }}
+      ></article>
+      <div className="flex flex-row items-center text-sm pb-5">
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>SH</AvatarFallback>
+        </Avatar>
+        <div className="mx-2 font-bold">
+          {article.author}
+          <span className="font-normal italic"> - Debt Expert</span>
         </div>
       </div>
-    </>
+    </section>
   )
 }

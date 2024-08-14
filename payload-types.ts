@@ -88,7 +88,6 @@ export interface Movie {
  */
 export interface Media {
   id: string;
-  alt?: string | null;
   caption?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -157,6 +156,7 @@ export interface Company {
   rating: number;
   link: string;
   logo?: string | Media | null;
+  'logo-alt'?: string | Media | null;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;

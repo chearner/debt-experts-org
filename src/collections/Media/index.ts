@@ -9,10 +9,6 @@ export const MediaCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'alt',
-      type: 'text',
-    },
-    {
       name: 'caption',
       type: 'text',
     },

@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="text-sm py-5 mx-5 max-w-screen-lg lg:mx-auto xl:mx-auto">
         <Link href="/">
           <Image
-            src={theme === 'dark' ? '/debt-experts-logo-light.svg' : '/debt-experts-logo-dark.svg'}
+            src={theme === 'dark' ? '/logo-outline-dark.svg' : '/logo-outline-light.svg'}
             alt="Debt-Experts.org"
             height="60"
             width="120"

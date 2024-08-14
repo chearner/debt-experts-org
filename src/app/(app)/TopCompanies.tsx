@@ -2,10 +2,9 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Smile, ShieldCheck, Percent, ArrowRight, Trophy } from 'lucide-react'
+import { ShieldCheck, ArrowRight, Trophy } from 'lucide-react'
 import type { Company, Media } from 'payload-types'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import {
   Card,
   CardContent,
@@ -21,7 +20,7 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
 
   return (
     <section className="flex flex-col mb-5">
-      <H2 text="Top 5 Debt Consolidation Loan Companies" span="August 2024" />
+      <H2 title="Top 5 Debt Consolidation Loan Companies" span="August 2024" />
       <div className="flex flex-wrap gap-5">
         {companies.map((company, i) => (
           <>
@@ -33,7 +32,7 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
               <CardContent className="w-full flex flex-row">
                 <div className="w-1/5 flex flex-col items-center justify-center">
                   <Image
-                    className=""
+                    className="pl-5"
                     src={
                       (company.logo as Media)?.mimeType === 'image/svg+xml'
                         ? (company.logo as Media)?.filename ?? ''
@@ -44,15 +43,21 @@ export default function TopCompanies({ companies: initialCompanies }: { companie
                     height={200}
                   />
                 </div>
-                <CardDescription className="w-2/5 flex flex-col justify-center items-center text-sm">
-                  <div className="font-extrabold flex flex-row w-fit bg-slate-200 rounded-lg p-2">
+                <CardDescription className="w-2/5 flex flex-col items-center justify-center text-sm">
+                  <div className="font-extrabold flex flex-row w-fit bg-slate-200 rounded-lg p-2 hidden">
                     <Trophy className="h-5 w-5 mr-2" />
                     Editors Choice
                   </div>
                   <div
-                    className="rich-text"
+                    className="rich-text pb-5"
                     dangerouslySetInnerHTML={{ __html: company.short_html || '' }}
                   ></div>
+                  <Link
+                    className="underline text-sm text-blue-500 font-bold"
+                    href={`/company/${company.slug}`}
+                  >
+                    Read Our Full Review
+                  </Link>
                 </CardDescription>
                 <CardDescription className="w-1/5 flex flex-col items-center justify-center text-sm">
                   <CardTitle>{company.rating}</CardTitle>

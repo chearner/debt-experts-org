@@ -19,7 +19,7 @@ export default function TopArticles({ articles: initialArticles }: { articles: A
 
   return (
     <section className="flex flex-col mb-5">
-      <H2 text="Debt Consolidation Articles" span="" />
+      <H2 title="Debt Consolidation Articles" span="" />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {articles.map((article) => (
           <Card key={article.id} className="max-w-xs shadow-xl">
